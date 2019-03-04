@@ -8,11 +8,7 @@
     "lint": "vue-cli-service lint",
     "start": "node server.js",
     "test": "mocha --exit",
-    "client": "cd client && yarn start",
-    "server": "nodemon server.js --ignore client",
-    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
-    "dev:server": "cd client && yarn build && cd .. && yarn start",
-    "heroku-postbuild": "cd client && yarn && yarn run build"
+    "postinstall": "npm run build"
   },
   "engines": {
     "node": "^8.12.0"
