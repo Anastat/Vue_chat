@@ -1,9 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-//const path = require('path');
+const path = require('path');
 const http = require('http');
-const serveStatic = require('serve-static');
+//const serveStatic = require('serve-static');
 
 const app = express();
 
@@ -14,8 +14,12 @@ app.use(bodyParser.json())
   require('dotenv').config()
 } else if (process.env.NODE_ENV === 'production') {*/
   // Serve any static files
-  app.use(serveStatic(__dirname + '/dist'));
+  app.use(express.static(path.join(__dirname + '/dist')));
 //}
+
+app.get('/', function (req, res) {
+  res.render(path.join(__dirname + '/dist/index.html'))
+})
 
 const port = process.env.PORT || 5000;
 
