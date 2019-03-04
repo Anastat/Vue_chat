@@ -17,7 +17,7 @@ if ( process.env.NODE_ENV !== 'production' ) {
   app.use(serveStatic(__dirname + '/dist'));
 }
 
-app.get(/.*/, function(req, res) {
+app.get('*', function(req, res) {
   res.sendfile(__dirname + "/dist/index.html");
 });
 
