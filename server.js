@@ -10,16 +10,12 @@ const app = express();
 app.use(cors())
 app.use(bodyParser.json())
 
-if ( process.env.NODE_ENV !== 'production' ) {
+/*if ( process.env.NODE_ENV !== 'production' ) {
   require('dotenv').config()
-} else if (process.env.NODE_ENV === 'production') {
+} else if (process.env.NODE_ENV === 'production') {*/
   // Serve any static files
   app.use(serveStatic(__dirname + '/dist'));
-}
-
-app.get('*', function(req, res) {
-  res.sendfile(__dirname + "/dist/index.html");
-});
+//}
 
 const port = process.env.PORT || 5000;
 
