@@ -13,7 +13,7 @@ if ( process.env.NODE_ENV !== 'production' ) {
   require('dotenv').config()
 } else if (process.env.NODE_ENV === 'production') {
   // Serve any static files
-  app.use(express.static(path.join(__dirname, 'client/build')));
+  app.use(express.static(path.join(__dirname, '/dist/')));
 }
 
 const port = process.env.PORT || 5000;
